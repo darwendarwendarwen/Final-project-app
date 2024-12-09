@@ -1,26 +1,10 @@
-# CC ?= gcc
+EXEC=accelerometer-app
 CFLAGS = -Wall -O2
-LDFLAGS = 
 
-# Target executable
-TARGET = accelerometer-app
+all: $(EXEC)
 
-# Source files
-SRCS = accelerometer-app.c
+$(EXEC): accelerometer-app.c
+	$(CC) $< $(CFLAGS) -o $(EXEC) 
 
-# Build rules
-all: $(TARGET)
-
-$(TARGET): $(SRCS)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $(TARGET) $(SRCS)
-
-# Clean up build artifacts
 clean:
-	rm -f $(TARGET) *.o
-
-# Install to a directory (optional)
-# install: $(TARGET)
-# 	install -d $(DESTDIR)/home/root
-# 	install -m 0755 $(TARGET) $(DESTDIR)/home/root
-
-.PHONY: all clean install
+	rm -f $(EXEC) *.o
