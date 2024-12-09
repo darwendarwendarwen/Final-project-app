@@ -1,0 +1,2 @@
+DESCRIPTION = "Project app"
+LICENSE = "CLOSED"
