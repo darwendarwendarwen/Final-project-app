@@ -3,23 +3,16 @@ AUTHOR = "Darwin Luk"
 LICENSE = "CLOSED"
 
 
-SRC_URI = "file://accelerometer-app.c \
-           file://Makefile"
+SRC_URI = "git://github.com/darwendarwendarwen/Final-project-app.git;branch=working-branch;protocol=https"
+SRCREV = "8a2d1f928b1317fdb75f6208dd1b2cfa6f96c035"
 
-SRC_URI[md5sum] = "ea436106f31ab1f43213690074ccabce d41d8cd98f00b204e9800998ecf8427e"
+S = "${WORKDIR}/git"
 
-S = "${WORKDIR}"
+DEPENDS += ""
 
-do_compile() {
-    oe_runmake
+do_install(){
+    install -d ${D}/usr/bin
+    install -m 0700 projectapp ${D}/usr/bin
 }
-
-do_install() {
-    oe_runmake install DESTDIR=${D}
-}
-
-
-DEPENDS = "virtual/libc"
-
 
 inherit autotools
