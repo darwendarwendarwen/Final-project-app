@@ -23,8 +23,7 @@ int main() {
     }
 
     // Set I2C slave address
-    if (ioctl(fd, I2C_SLAVE, DEV_ADDR
-) < 0) {
+    if (ioctl(fd, I2C_SLAVE, DEV_ADDR) < 0) {
         perror("Failed to set I2C slave address");
         close(fd);
         return 1;
