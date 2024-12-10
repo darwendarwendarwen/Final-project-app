@@ -1,16 +1,20 @@
 SUMMARY = "Input App"
 DESCRIPTION = "Compiles and installs a c program"
-LICENSE = "ClOSED"
+LICENSE = "CLOSED"
 
-SRC_URI = "file://accelerometer_app.c"
+SRC_URI = "git://github.com/darwendarwendarwen/Final-project-app.git;protocol=https;branch=working"
 
-S = "${WORKDIR}"
+SRCREV = "b3edf1544ac1dd435571f2fa60be1a1ba169651c"
+
+S = "${WORKDIR}/git"
 
 do_compile() {
-        ${CC} accelerometer_app.c -o accelerometer_app
+        oe_runmake
 }
 
 do_install() {
         install -d ${D}${bindir}
         install -m 0755 accelerometer_app ${D}${bindir}
 }
+
+FILES_${PN} = "${bindir}/accelerometer_app"
